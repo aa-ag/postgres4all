@@ -7,3 +7,12 @@ CREATE TABLE users(
     name VARCHAR(128),
     email VARCHAR(128)
 );
+\d+ users
+-- psql -h HOST -p POSRT -U USER DB
+CREATE TABLE pg4e_debug (
+  id SERIAL,
+  query VARCHAR(4096),
+  result VARCHAR(4096),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(id)
+);
