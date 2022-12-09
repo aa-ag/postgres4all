@@ -1,4 +1,5 @@
 # https://raw.githubusercontent.com/postgres/postgres/master/.gitignore
+.env
 *.o
 *.obj
 *.bc
