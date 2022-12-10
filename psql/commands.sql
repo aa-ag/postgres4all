@@ -1,7 +1,7 @@
 -- brew services start postgresql@14
 -- psql postgres
 CREATE USER pg4e WITH PASSWORD 'thisisajoke';
-CREATE DATABASE people WITH OWNER 'pg4e';
+CREATE DATABASE people WITH OWNER 'pg4e' ENCODING 'UTF8';
 \dt
 CREATE TABLE users(
     name VARCHAR(128),
