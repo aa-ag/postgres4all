@@ -28,9 +28,9 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER set_timestamp()
-BEFORE UPDATE ON fav
+BEFORE UPDATE ON keyvalue
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
-UPDATE fav SET howmuch=howmuch+1
+UPDATE keyvalue SET howmuch=howmuch+1
 WHERE post_id=1 AND account_id=1;
