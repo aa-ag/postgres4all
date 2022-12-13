@@ -18,3 +18,19 @@ CREATE TABLE pg4e_debug (
 );
 
 ALTER TABLE pg4e_debug ADD COLUMN neon553 INTEGER;
+
+CREATE OR REPLACE FUNCTION trigger_set_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER set_timestamp()
+BEFORE UPDATE ON fav
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
+UPDATE fav SET howmuch=howmuch+1
+WHERE post_id=1 AND account_id=1;
