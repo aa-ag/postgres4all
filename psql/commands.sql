@@ -53,7 +53,6 @@ CREATE TABLE track_raw
  (title TEXT, artist TEXT, album TEXT, album_id INTEGER,
   count INTEGER, rating INTEGER, len INTEGER);
 
-\copy track_raw(title, artist, album, album_id, count, rating, len)
-FROM 'https://www.pg4e.com/tools/sql/library.csv?PHPSESSID=8f5c77ffec4ef4533f25accba9df14aa%22'
-DELIMITER ','
-CSV HEADER;
+\copy track_raw(title, artist, album, album_id, count, rating)
+FROM '/Users/aaronaguerrevere/Documents/projects/postgres4all/psql/library.csv'
+DELIMITER ',';
