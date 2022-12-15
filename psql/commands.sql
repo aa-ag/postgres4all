@@ -55,4 +55,4 @@ CREATE TABLE track_raw
 
 \copy track_raw(title, artist, album, album_id, count, rating)
 FROM '/Users/aaronaguerrevere/Documents/projects/postgres4all/psql/library.csv'
-DELIMITER ',';
+WITH (FORMAT CSV, DELIMITER ',', FORCE_NULL (count));
