@@ -17,6 +17,7 @@ CREATE TABLE pg4e_debug (
   PRIMARY KEY(id)
 );
 
+
 ALTER TABLE pg4e_debug ADD COLUMN neon553 INTEGER;
 
 CREATE OR REPLACE FUNCTION trigger_set_timestamp()
@@ -51,3 +52,8 @@ DROP TABLE IF EXISTS track_raw;
 CREATE TABLE track_raw
  (title TEXT, artist TEXT, album TEXT, album_id INTEGER,
   count INTEGER, rating INTEGER, len INTEGER);
+
+\copy track_raw(title, artist, album, album_id, count, rating, len)
+FROM 'https://www.pg4e.com/tools/sql/library.csv?PHPSESSID=8f5c77ffec4ef4533f25accba9df14aa%22'
+DELIMITER ','
+CSV HEADER;
