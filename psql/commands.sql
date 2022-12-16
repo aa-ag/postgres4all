@@ -61,3 +61,8 @@ INSERT INTO track(title, album_id, count, rating)
 SELECT title, album_id, count, rating
 FROM track_raw
 ON CONFLICT DO NOTHING;
+
+INSERT INTO album(title)
+SELECT album
+FROM track_raw
+ON CONFLICT DO NOTHING;
