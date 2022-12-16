@@ -141,3 +141,11 @@ UPDATE unesco_raw SET iso_id = (SELECT iso.id FROM iso WHERE iso.name = unesco_r
   area_hectares,category, state,region, iso)
 FROM 'psql/whc-sites-2018-small.csv'
 WITH (FORMAT CSV, DELIMITER ',', HEADER);
+
+-- tracktoartis exercise
+DROP TABLE album CASCADE;
+CREATE TABLE album (
+    id SERIAL,
+    title VARCHAR(128) UNIQUE,
+    PRIMARY KEY(id)
+);
