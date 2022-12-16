@@ -56,3 +56,8 @@ CREATE TABLE track_raw
 \copy track_raw(title, artist, album, album_id, count, rating)
 FROM '/Users/aaronaguerrevere/Documents/projects/postgres4all/psql/library.csv'
 WITH (FORMAT CSV, DELIMITER ',', FORCE_NULL (count));
+
+INSERT INTO track(title, album_id, count, rating)
+SELECT title, album_id, count, rating
+FROM track_raw
+ON CONFLICT DO NOTHING;
