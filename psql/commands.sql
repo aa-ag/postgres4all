@@ -162,3 +162,10 @@ CREATE TABLE track (
     len INTEGER,
     PRIMARY KEY(id)
 );
+
+DROP TABLE artist CASCADE;
+CREATE TABLE artist (
+    id SERIAL,
+    name VARCHAR(128) UNIQUE,
+    PRIMARY KEY(id)
+);
