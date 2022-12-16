@@ -77,6 +77,21 @@ CREATE TABLE unesco_raw
     category TEXT, category_id INTEGER, state TEXT, state_id INTEGER,
     region TEXT, region_id INTEGER, iso TEXT, iso_id INTEGER);
 
+DROP TABLE unesco;
+CREATE TABLE unesco
+ (name TEXT, description TEXT, justification TEXT, year INTEGER,
+    longitude FLOAT, latitude FLOAT, area_hectares FLOAT,
+    category TEXT, category_id INTEGER, state TEXT, state_id INTEGER,
+    region TEXT, region_id INTEGER, iso TEXT, iso_id INTEGER);
+INSERT INTO unesco(name, description, justification, year,
+    longitude, latitude, area_hectares,
+    category, category_id, state, state_id,
+    region, region_id, iso, iso_id
+)
+SELECT *
+FROM unesco_raw
+ON CONFLICT DO NOTHING;
+
 CREATE TABLE category (
   id SERIAL,
   name VARCHAR(128) UNIQUE,
