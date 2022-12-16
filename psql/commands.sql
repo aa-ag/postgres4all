@@ -97,3 +97,9 @@ CREATE TABLE iso (
   name VARCHAR(128) UNIQUE,
   PRIMARY KEY(id)
 );
+
+\copy unesco_raw(
+  name, description, justification, year,longitude, latitude,
+  area_hectares,category, state,region, iso)
+FROM 'psql/whc-sites-2018-small.csv'
+WITH (FORMAT CSV, DELIMITER ',', HEADER);
