@@ -149,3 +149,16 @@ CREATE TABLE album (
     title VARCHAR(128) UNIQUE,
     PRIMARY KEY(id)
 );
+
+DROP TABLE track CASCADE;
+CREATE TABLE track (
+    id SERIAL,
+    title TEXT, 
+    artist TEXT, 
+    album TEXT, 
+    album_id INTEGER REFERENCES album(id) ON DELETE CASCADE,
+    count INTEGER, 
+    rating INTEGER, 
+    len INTEGER,
+    PRIMARY KEY(id)
+);
