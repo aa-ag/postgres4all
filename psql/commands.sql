@@ -187,3 +187,6 @@ UPDATE track SET album_id = (SELECT album.id FROM album WHERE album.title = trac
 
 INSERT INTO tracktoartist (track, artist) SELECT DISTINCT title,artist FROM track;
 INSERT INTO artist (name) SELECT DISTINCT artist FROM track;
+
+UPDATE tracktoartist SET track_id = (SELECT track.id FROM track WHERE track.title=tracktoartist.track);
+UPDATE tracktoartist SET artist_id = (SELECT artist.id FROM artist WHERE artist.name=tracktoartist.artist);
