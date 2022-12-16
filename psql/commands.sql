@@ -82,21 +82,44 @@ CREATE TABLE category (
   name VARCHAR(128) UNIQUE,
   PRIMARY KEY(id)
 );
+INSERT INTO category(name)
+SELECT category
+FROM unesco_raw
+ON CONFLICT DO NOTHING;
+UPDATE unesco_raw SET category_id = (SELECT category.id FROM category WHERE category.name = unesco_raw.category);
+
 CREATE TABLE region (
   id SERIAL,
   name VARCHAR(128) UNIQUE,
   PRIMARY KEY(id)
 );
+INSERT INTO region(name)
+SELECT region
+FROM unesco_raw
+ON CONFLICT DO NOTHING;
+UPDATE unesco_raw SET region_id = (SELECT region.id FROM region WHERE region.name = unesco_raw.region);
+
 CREATE TABLE state (
   id SERIAL,
   name VARCHAR(128) UNIQUE,
   PRIMARY KEY(id)
 );
+INSERT INTO state(name)
+SELECT state
+FROM unesco_raw
+ON CONFLICT DO NOTHING;
+UPDATE unesco_raw SET state_id = (SELECT state.id FROM state WHERE state.name = unesco_raw.state);
+
 CREATE TABLE iso (
   id SERIAL,
   name VARCHAR(128) UNIQUE,
   PRIMARY KEY(id)
 );
+INSERT INTO iso(name)
+SELECT iso
+FROM unesco_raw
+ON CONFLICT DO NOTHING;
+UPDATE unesco_raw SET iso_id = (SELECT iso.id FROM iso WHERE iso.name = unesco_raw.iso);
 
 \copy unesco_raw(
   name, description, justification, year,longitude, latitude,
