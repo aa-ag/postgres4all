@@ -179,3 +179,10 @@ CREATE TABLE tracktoartist (
     artist_id INTEGER REFERENCES artist(id) ON DELETE CASCADE,
     PRIMARY KEY(id)
 );
+
+\copy track(title,artist,album,count,rating,len) FROM '/Users/aaronaguerrevere/Documents/projects/postgres4all/psql/library.csv' WITH DELIMITER ',' CSV;
+
+INSERT INTO album (title) SELECT DISTINCT album FROM track;
+UPDATE track SET album_id = (SELECT album.id FROM album WHERE album.title = track.album);
+
+INSERT INTO tracktoartist (track, artist) SELECT DISTINCT title,artist FROM track;
