@@ -62,6 +62,8 @@ SELECT title, album_id, count, rating
 FROM track_raw
 ON CONFLICT DO NOTHING;
 
+UPDATE track_raw SET album_id = (SELECT album.id FROM album WHERE album.title = track_raw.album);
+
 INSERT INTO album(title)
 SELECT album
 FROM track_raw
