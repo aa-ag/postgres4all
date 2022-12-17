@@ -190,3 +190,11 @@ INSERT INTO artist (name) SELECT DISTINCT artist FROM track;
 
 UPDATE tracktoartist SET track_id = (SELECT track.id FROM track WHERE track.title=tracktoartist.track);
 UPDATE tracktoartist SET artist_id = (SELECT artist.id FROM artist WHERE artist.name=tracktoartist.artist);
+
+-- We are now done with these text fields
+ALTER TABLE track DROP COLUMN album;
+ALTER TABLE track  DROP COLUMN artist;
+ALTER TABLE tracktoartist DROP COLUMN track;
+ALTER TABLE tracktoartist  DROP COLUMN artist;
+
+SELECT 'https://www.example.com/' || trunc(random()*100000) || repeat('lorem-ipsum/',2) || generate_series(1,5);
