@@ -215,3 +215,7 @@ SELECT (
 
 \timing
 explain analyze SELECT COUNT(*) FROM texttest;
+
+-- B-Tree Index Only Scan VS Sequential Scan
+explain analyze SELECT content FROM texttest WHERE content LIKE 'racing%';
+explain analyze SELECT content FROM texttest WHERE content LIKE '%racing%';
