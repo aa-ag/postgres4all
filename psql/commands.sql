@@ -221,3 +221,25 @@ explain analyze SELECT content FROM texttest WHERE content LIKE 'racing%';
 explain analyze SELECT content FROM texttest WHERE content LIKE '%racing%';
 
 SHOW SERVER_ENCODING;
+
+-- collision example
+d 1 100 100
+d 2 100 300
+d 3 100 600
+d 1 100 700
+d 2 100 900
+d 3 100 1200
+d 1 100 1300
+d 2 100 1500
+d 3 100 1800
+1800 ddddddddd
+
+x 1 120 120
+x 2 120 360
+x 3 120 720
+x 1 120 840
+x 2 120 1080
+x 3 120 1440
+x 1 120 1560
+x 2 120 1800
+1800 xxxxxxxx
