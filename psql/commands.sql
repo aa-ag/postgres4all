@@ -203,3 +203,12 @@ CREATE TABLE texttest (
   content TEXT
 );
 CREATE INDEX texttest_b ON  texttest (content);
+
+SELECT pg_relation_size('texttest'), pg_indexes_size('texttest');
+
+INSERT INTO texttest (content)
+SELECT (
+  CASE WHEN (random() < 0.5)
+  THEN 'https://www.example.com/a/'
+  ELSE 'https://www.example.com/b/'
+  END) || generate_series(1,100000);
