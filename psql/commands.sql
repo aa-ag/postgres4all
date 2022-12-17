@@ -197,4 +197,9 @@ ALTER TABLE track  DROP COLUMN artist;
 ALTER TABLE tracktoartist DROP COLUMN track;
 ALTER TABLE tracktoartist  DROP COLUMN artist;
 
-SELECT 'https://www.example.com/' || trunc(random()*100000) || repeat('lorem-ipsum/',2) || generate_series(1,5);
+SELECT 'https://www.example.com/' || trunc(random()*100000) || repeat('/lorem-ipsum/',2) || generate_series(1,5);
+
+CREATE TABLE texttest (
+  content TEXT
+);
+CREATE INDEX texttest_b ON  texttest (content);
