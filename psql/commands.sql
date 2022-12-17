@@ -243,3 +243,11 @@ x 3 120 1440
 x 1 120 1560
 x 2 120 1800
 1800 xxxxxxxx
+
+-- Generating Text Assignment
+CREATE TABLE bigtext(
+  content TEXT
+);
+
+INSERT INTO bigtext (content)
+SELECT ('This is record number ' || generate_series(100000,199999) || ' of quite a few text records.');
