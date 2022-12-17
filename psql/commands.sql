@@ -212,3 +212,6 @@ SELECT (
   THEN 'https://www.example.com/a/'
   ELSE 'https://www.example.com/b/'
   END) || generate_series(1,100000);
+
+\timing
+explain analyze SELECT COUNT(*) FROM texttest;
