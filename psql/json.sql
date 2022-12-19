@@ -12,6 +12,7 @@ VALUES ('This is SQL: a class focused on PostgreSQL'),
 ('PostgreSQL is open source'),
 ('PostgreSQL For Everybody is a Coursera Specialization');
 
+--  General Inverted Index
 CREATE TABLE docs_gin (
     keyword TEXT,
     doc_id INTEGER REFERENCES docs(id) ON DELETE CASCADE
