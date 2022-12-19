@@ -32,3 +32,5 @@ WHERE g.keyword IN ('PostgreSQL');
 SELECT DISTINCT id,doc FROM docs AS d
 JOIN docs_gin AS g ON d.id=g.doc_id
 WHERE g.keyword = ANY(string_to_array('open source',' '));
+
+SELECT cfgname FROM pg_ts_config;
