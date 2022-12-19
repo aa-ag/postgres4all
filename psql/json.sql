@@ -12,3 +12,14 @@ VALUES ('This is SQL: a class focused on PostgreSQL'),
 ('PostgreSQL is open source'),
 ('PostgreSQL For Everybody is a Coursera Specialization');
 
+CREATE TABLE docs_gin (
+    keyword TEXT,
+    doc_id INTEGER REFERENCES docs(id) ON DELETE CASCADE
+);
+
+INSERT INTO docs_gin (doc_id,keyword)
+SELECT DISTINCT id,s.keyword AS keyword
+FROM docs AS d, unnest(string_to_array(d.doc,' ')) s(keyword)
+ORDER BY id;
+
+SELECT * FROM docs_gin;
