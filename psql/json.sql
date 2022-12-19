@@ -23,3 +23,7 @@ FROM docs AS d, unnest(string_to_array(d.doc,' ')) s(keyword)
 ORDER BY id;
 
 SELECT * FROM docs_gin;
+
+SELECT DISTINCT id,doc FROM docs AS d
+JOIN docs_gin AS g ON d.id=g.doc_id
+WHERE g.keyword IN ('PostgreSQL');
