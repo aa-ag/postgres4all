@@ -33,4 +33,14 @@ SELECT DISTINCT id,doc FROM docs AS d
 JOIN docs_gin AS g ON d.id=g.doc_id
 WHERE g.keyword = ANY(string_to_array('open source',' '));
 
+-- preConfig words
 SELECT cfgname FROM pg_ts_config;
+
+CREATE TABLE stop_words (word TEXT UNIQUE);
+INSERT INTO stop_words (word) VALUES ('is'),('this'),('and');
+INSERT INTO stop_words (word) VALUES ('for'),('a'),('on');
+
+SELECT DISTINCT id,s.keyword AS keyword
+FROM docs AS d, unnest(string_to_array(LOWER(d.doc),' ')) s(keyword)
+WHERE s.keyword NOT IN (SELECT word FROM stop_words)
+ORDER BY id;
