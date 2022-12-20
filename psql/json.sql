@@ -64,3 +64,8 @@ INSERT INTO docs01 (doc) VALUES
 ('C The new programming language has very different vocabulary and'),
 ('grammar but the problemsolving skills will be the same across all'),
 ('You will learn the vocabulary and sentences of Python pretty');
+
+INSERT INTO invert01 (doc_id,keyword)
+SELECT DISTINCT id,LOWER(s.keyword) AS keyword
+FROM docs01 AS d, unnest(string_to_array(d.doc,' ')) s(keyword)
+ORDER BY id;
