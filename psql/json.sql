@@ -44,3 +44,11 @@ SELECT DISTINCT id,s.keyword AS keyword
 FROM docs AS d, unnest(string_to_array(LOWER(d.doc),' ')) s(keyword)
 WHERE s.keyword NOT IN (SELECT word FROM stop_words)
 ORDER BY id;
+
+-- Index Excercise
+CREATE TABLE docs01 (id SERIAL, doc TEXT, PRIMARY KEY(id));
+
+CREATE TABLE invert01 (
+  keyword TEXT,
+  doc_id INTEGER REFERENCES docs01(id) ON DELETE CASCADE
+);
