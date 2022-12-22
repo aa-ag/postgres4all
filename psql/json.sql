@@ -106,3 +106,13 @@ SELECT DISTINCT id,s.keyword AS keyword
 FROM docs02 AS d, unnest(string_to_array(d.doc,' ')) s(keyword)
 WHERE s.keyword NOT IN (SELECT word FROM stop_words)
 ORDER BY id;
+
+-- Generalized Inverted Index: GIN
+CREATE TABLE docs (id SERIAL, doc TEXT, PRIMARY KEY(id));
+
+CREATE INDEX  gin1 ON docs USING gin(string_to_array(doc,' '), _text_ops);
+
+INSERT INTO docs (doc)
+VALUES ('This is SQL: a class focused on PostgreSQL'),
+('PostgreSQL is open source'),
+('PostgreSQL For Everybody is a Coursera Specialization');
