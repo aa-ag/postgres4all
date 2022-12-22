@@ -110,7 +110,9 @@ ORDER BY id;
 -- Generalized Inverted Index: GIN
 CREATE TABLE docs (id SERIAL, doc TEXT, PRIMARY KEY(id));
 
+SELECT version();
 CREATE INDEX  gin1 ON docs USING gin(string_to_array(doc,' '), _text_ops);
+CREATE INDEX  gin1 ON docs USING gin(string_to_array(doc,' '), array_ops);
 
 INSERT INTO docs (doc)
 VALUES ('This is SQL: a class focused on PostgreSQL'),
