@@ -121,3 +121,5 @@ VALUES ('This is SQL: a class focused on PostgreSQL'),
 
 -- tsquery tsvector
 SELECT to_tsvector('english', 'Python, SQL, Postgres, test, testing');
+
+SELECT to_tsquery('english','teaching');
