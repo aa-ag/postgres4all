@@ -1,7 +1,7 @@
 # https://raw.githubusercontent.com/postgres/postgres/master/.gitignore
-psycopg/hidden-dist.py
-psycopg/pg19337.txt
-psycopg/__pycache__
+loadbook/psycopg/hidden-dist.py
+loadbook/psycopg/pg19337.txt
+loadbook/psycopg/__pycache__
 venv
 .env
 .DS_Store
