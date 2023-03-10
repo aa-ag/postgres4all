@@ -138,3 +138,4 @@ INSERT INTO docs03 (doc) VALUES
 ('C The new programming language has very different vocabulary and'),
 ('grammar but the problemsolving skills will be the same across all'),
 ('You will learn the vocabulary and sentences of Python pretty');
+INSERT INTO docs03 (doc) SELECT 'Neon ' || generate_series(10000,20000);
