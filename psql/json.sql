@@ -127,3 +127,14 @@ SELECT to_tsquery('english','teaching');
 -- GIN exercise
 CREATE TABLE docs03 (id SERIAL, doc TEXT, PRIMARY KEY(id));
 CREATE INDEX array03 ON docs03 USING gin(to_tsvector('english',doc));
+INSERT INTO docs03 (doc) VALUES
+('words and sentences to convey an idea to the reader There is a'),
+('skill and art in constructing the story and skill in story writing'),
+('is improved by doing some writing and getting some feedback In'),
+('programming our program is the story and the problem you are'),
+('trying to solve is the idea'),
+('Once you learn one programming language such as Python you will find it'),
+('much easier to learn a second programming language such as JavaScript or'),
+('C The new programming language has very different vocabulary and'),
+('grammar but the problemsolving skills will be the same across all'),
+('You will learn the vocabulary and sentences of Python pretty');
