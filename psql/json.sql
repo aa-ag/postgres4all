@@ -123,3 +123,6 @@ VALUES ('This is SQL: a class focused on PostgreSQL'),
 SELECT to_tsvector('english', 'Python, SQL, Postgres, test, testing');
 
 SELECT to_tsquery('english','teaching');
+
+-- GIN exercise
+CREATE TABLE docs03 (id SERIAL, doc TEXT, PRIMARY KEY(id));
