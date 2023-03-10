@@ -126,3 +126,4 @@ SELECT to_tsquery('english','teaching');
 
 -- GIN exercise
 CREATE TABLE docs03 (id SERIAL, doc TEXT, PRIMARY KEY(id));
+CREATE INDEX array03 ON docs03 USING gin(to_tsvector('english',doc));
