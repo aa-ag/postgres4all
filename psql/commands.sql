@@ -251,3 +251,6 @@ CREATE TABLE bigtext(
 
 INSERT INTO bigtext (content)
 SELECT ('This is record number ' || generate_series(100000,199999) || ' of quite a few text records.');
+
+-- ReGex
+SELECT purpose FROM taxdata WHERE purpose ~ '[0-9][0-9][0-9][0-9]$';

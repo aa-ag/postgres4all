@@ -139,3 +139,5 @@ INSERT INTO docs03 (doc) VALUES
 ('grammar but the problemsolving skills will be the same across all'),
 ('You will learn the vocabulary and sentences of Python pretty');
 INSERT INTO docs03 (doc) SELECT 'Neon ' || generate_series(10000,20000);
+EXPLAIN SELECT id, doc FROM docs03 WHERE '{problemsolving}' <@ string_to_array(lower(doc), ' ');
+SELECT id, doc FROM docs03 WHERE '{problemsolving}' <@ string_to_array(lower(doc), ' ');
