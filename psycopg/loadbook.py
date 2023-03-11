@@ -3,11 +3,12 @@ import hidden
 import time
 
 bookfile = input("Enter book file (i.e. pg19337.txt): ")
-if bookfile == '' : bookfile = 'pg19337.txt';
+if bookfile == '':
+    bookfile = 'pg19337.txt'
 base = bookfile.split('.')[0]
 
 # Make sure we can open the file
-fhand = open(bookfile)
+fhand = open("psycopg/pg19337.txt")
 
 # Load the secrets
 secrets = hidden.secrets()
