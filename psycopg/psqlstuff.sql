@@ -1,0 +1,1 @@
+CREATE INDEX pg19337_gin ON pg19337 USING gin(to_tsvector('english', body));
