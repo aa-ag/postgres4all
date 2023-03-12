@@ -1,9 +1,9 @@
 # https://raw.githubusercontent.com/postgres/postgres/master/.gitignore
-hidden
+hidden.py
 */hidden*
-psycopg/hidden-dist.py
+*/hidden-dist.py
 psycopg/pg19337.txt
-psycopg/__pycache__
+*/__pycache__
 venv
 .env
 .DS_Store
