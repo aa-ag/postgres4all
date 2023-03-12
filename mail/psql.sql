@@ -5,3 +5,4 @@ ALTER TABLE messages ADD COLUMN sender TEXT;
 SELECT SUBSTRING(headers, '\nFrom: [^\n]*<([^>]*)') FROM messages;
 UPDATE messages SET sender = SUBSTRING(headers, '\nFrom: [^\n]*<([^>]*)');
 SELECT subject, sender FROM messages WHERE to_tsquery('english', 'password') @@ to_tsvector('english', subject) LIMIT 10;
+SELECT id, subject, sender FROM messages WHERE to_tsquery('english', 'personal & learning') @@ to_tsvector('english', body);
