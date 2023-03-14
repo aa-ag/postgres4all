@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS jtrack (id SERIAL, body JSONB);
