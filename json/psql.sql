@@ -7,3 +7,4 @@ SELECT (body->>'count')::int FROM jtrack WHERE body @> '{"name":"Summer Nights"}
 SELECT COUNT(*) FROM jtrack WHERE body ? 'favorite';
 
 UPDATE jtrack SET body = body || '{"favorite": "yes"}' WHERE (body->'count')::int > 200;
+SELECT body FROM jtrack WHERE body ? 'favorite';
