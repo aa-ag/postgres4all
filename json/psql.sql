@@ -12,3 +12,4 @@ INSERT INTO jtrack (body) SELECT ('{"type": "Neon", "series": "24 Hours of Lemon
 
 CREATE INDEX jtrack_btree ON jtrack USING BTREE ((body->>'name'));
 CREATE INDEX jtrack_gin ON jtrack USING gin (body);
+CREATE INDEX jtrack_gin_path_ops ON jtrack USING gin (body json_path_ops);
