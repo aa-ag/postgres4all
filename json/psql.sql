@@ -9,3 +9,5 @@ SELECT COUNT(*) FROM jtrack WHERE body ? 'favorite';
 UPDATE jtrack SET body = body || '{"favorite": "yes"}' WHERE (body->'count')::int > 200;
 SELECT body FROM jtrack WHERE body ? 'favorite';
 INSERT INTO jtrack (body) SELECT ('{"type": "Neon", "series": "24 Hours of Lemons", "number": ' || generate_series(1000,5000) || '}')::json;
+
+CREATE INDEX jtrack_btree ON jtrack USING BTREE ((body->>'name'));
