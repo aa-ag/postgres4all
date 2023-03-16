@@ -11,3 +11,4 @@ SELECT body FROM jtrack WHERE body ? 'favorite';
 INSERT INTO jtrack (body) SELECT ('{"type": "Neon", "series": "24 Hours of Lemons", "number": ' || generate_series(1000,5000) || '}')::json;
 
 CREATE INDEX jtrack_btree ON jtrack USING BTREE ((body->>'name'));
+CREATE INDEX jtrack_gin ON jtrack USING gin (body);
