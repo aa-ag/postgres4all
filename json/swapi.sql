@@ -5,3 +5,5 @@ CREATE TABLE IF NOT EXISTS swapi (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ 
 )
+
+SELECT * FROM swapi WHERE body @> '{"director":"George Lucas"}';

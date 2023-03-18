@@ -1,9 +1,6 @@
 # https://raw.githubusercontent.com/postgres/postgres/master/.gitignore
 hidden.py
-*/hidden*
-*/hidden-dist.py
-psycopg/pg19337.txt
-*/__pycache__
+__pycache__
 *.py
 venv
 .env
