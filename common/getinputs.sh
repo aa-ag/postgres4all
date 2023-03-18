@@ -9,5 +9,5 @@
 # wget https://www.pg4e.com/code/hidden-dist.py
 
 # wget https://www.pg4e.com/code/library.jstxt
-wget https://www.pg4e.com/code/swapi.jstxt
-wget https://www.pg4e.com/code/myutils.jstxt
+wget https://www.pg4e.com/code/swapi.py
+wget https://www.pg4e.com/code/myutils.py
