@@ -18,3 +18,4 @@ EXPLAIN SELECT COUNT(*) FROM jtrack WHERE body->>'artist' = 'Queen';
 EXPLAIN SELECT COUNT(*) FROM jtrack WHERE body @> '{"name": "Summer Nights"}';
 
 SELECT (body->'count')::int + 1 FROM jtrack LIMIT 1;
+UPDATE jtrack SET body = jsonb_set(body, '{ count }', ( (body->>'count')::int + 1)::text::jsonb ) WHERE body->>'name' = 'Summer Nights';
