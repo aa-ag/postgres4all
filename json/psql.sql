@@ -16,3 +16,5 @@ CREATE INDEX jtrack_gin_path_ops ON jtrack USING gin (body json_path_ops);
 
 EXPLAIN SELECT COUNT(*) FROM jtrack WHERE body->>'artist' = 'Queen';
 EXPLAIN SELECT COUNT(*) FROM jtrack WHERE body @> '{"name": "Summer Nights"}';
+
+SELECT (body->'count')::int + 1 FROM jtrack LIMIT 1;
