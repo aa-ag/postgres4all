@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS pokeapi (id INTEGER, body JSONB);
